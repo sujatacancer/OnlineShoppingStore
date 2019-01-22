@@ -1,0 +1,40 @@
+﻿@model OnlineShoppingStore.Web.Models.LoginViewModel
+@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+        }
+
+<script src="~/Scripts/Login/Login.js"></script>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Login Page</div>
+    <div class="panel-body">
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "loginForm" }))
+        {
+            <div class="form-group">
+                <div class="col-lg-3">
+                    <label>User Name</label>
+                </div>
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+
+            </div>
+            <div class="form-group">
+                <div class="col-lg-3">
+                    <label>Password</label>
+                </div>
+                @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+
+                <div class="col-lg-4 text-center">
+                    <input type="button" id="btnLogin" value="Login" class="btn btn-primary" />
+                    <input type="button" id="btnCancel" value="Cancel" class="btn btn-primary" />
+
+                </div>
+                <div class="text-left">
+                    @Html.ActionLink("New User", "NewUser", "Login")
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

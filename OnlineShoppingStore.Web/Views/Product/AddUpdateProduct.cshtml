@@ -1,0 +1,47 @@
+﻿@model OnlineShoppingStore.Web.Models.ProductViewModel
+<script src="~/Scripts/Jscripts/DisplayProduct.js"></script>
+<div class="panel panel-default">
+    <div class="panel panel-heading">Product details</div>
+    <div class="panel panel-body">
+        <form id="frmAddUpdateProduct">
+            <table>
+                <tr>
+                    <th>Product Name</th>
+                    <td>@Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })</td>
+                    @Html.ValidationMessageFor(m => m.ProductName)
+                    <th>Category Name</th>
+                    @*<td>@Html.DropDownListFor(m=>m.CategoryId,Model.Categories)</td>*@
+                    <td>@Html.TextBoxFor(m => m.CategoryId, new { @class = "form-control" })</td>
+                    <th>Price</th>
+                    <td>@Html.TextBoxFor(m => m.Price, new { @class = "form-control" })</td>
+                    @Html.ValidationMessageFor(m => m.Price)
+                </tr>
+                <tr>
+                    <th>Product Description</th>
+                    <td colspan="2">@Html.TextAreaFor(m => m.Description, new { @class = "form-control" })</td>
+                    @Html.ValidationMessageFor(m => m.Description)
+
+                </tr>
+                <tr>
+                    <th>Image</th>
+                    <td>@Html.TextAreaFor(m => m.ProductImage, new { @class = "form-control" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.CheckBoxFor(m => m.IsActive)</td>
+                    <td>Is Active?</td>
+                </tr>
+                <tr>
+                    <td>@Html.CheckBoxFor(m => m.IsDelete)</td>
+                    <td>Is Delete?</td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="Save" id="btnSave" class="btn btn-primary" /></td>
+                    <td>
+                        <input type="button" value="Back" id="btnBack" class="btn btn-danger" onclick="window.location.href='DisplayProducts'" />
+                    </td>
+                </tr>
+                @Html.HiddenFor(m => m.ProductId)
+            </table>
+        </form>
+    </div>
+</div>

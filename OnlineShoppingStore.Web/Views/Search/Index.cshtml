@@ -1,0 +1,57 @@
+﻿@model IEnumerable<OnlineShoppingStore.Web.Models.SearchResultViewModel>
+
+@{
+    ViewBag.Title = "Search Result";
+}
+<style>
+    .servicesBox .servicesImg img {
+        height: 172px;
+        width: 270px;
+    }
+
+    .DservicesImg img {
+        height: 162px;
+        width: 254px;
+    }
+
+    .FilterBox {
+        max-height: 200px;
+        overflow: auto;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <div>
+            <div><h1>@ViewBag.searchKey &nbsp; <span>@(!string.IsNullOrEmpty(ViewBag.searchKey) ? "I" : "") &nbsp;@(Model != null ? Model.Count() : 0)</span></h1></div>
+            <div>
+                <input type="text" placeholder="Enter text" id="searchKey" name="searchKey" value="@ViewBag.searchKey" />
+            </div>
+            <button type="button" onclick="$(this).parent().parent().submit();"><img src="/images/searchIcon.png" alt="img" /></button>
+        </div>
+    </div>
+
+    <div>
+        <div class="container">
+            <div>
+                @if (Model.Count() > 0)
+                {
+                    <ul>
+                        @foreach (var item in Model)
+                        {
+                            <div class="servicesBox">
+                                <li>
+                                    <div>@item.ProductImage</div>
+                                    <div><a title="View Product" href="/search/productDetail?pId=@item.ProductId">@item.ProductName</a></div>
+                                    <div>Category: @item.CategoryName</div>
+                                </li>
+                            </div>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+}
+    

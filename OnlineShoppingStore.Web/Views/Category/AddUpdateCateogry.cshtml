@@ -1,0 +1,28 @@
+﻿@model OnlineShoppingStore.Domain.Entities.Categ
+<script src="~/Scripts/Jscripts/AddupdateCategory.js"></script>
+<div class="panel panel-default">
+    <div class="panel panel-heading">Category</div>
+    <form id="frmCategory" method="post">
+        <div class="panel panel-body form-group">
+            <table>
+                <tr>
+                    <td><label>Category Name</label></td>
+                    <td>@Html.TextBoxFor(m => m.CategoryName , new { @class="form-control"})</td>
+                    @Html.ValidationMessageFor(m=>m.CategoryName)
+                </tr>
+
+                @*<tr>
+                    <td><label>Category Name</label></td>
+                    <td>@Html.DropDownListFor(model=>model.IsActive,new string[] { "True"}{"False" })</td>
+                </tr>*@
+                <tr><td></td></tr>
+                <tr>
+                    <td><input type="button" value="Save" id="btnSave" class="btn btn-primary" /></td>
+                    <td>
+                        <input type="button" value="Back" id="btnBack" class="btn btn-danger" onclick="window.location.href='LoadCategory'" /></td>
+                </tr>
+                @Html.HiddenFor(m=>m.CategoryId)
+            </table>
+        </div>
+    </form>
+</div>

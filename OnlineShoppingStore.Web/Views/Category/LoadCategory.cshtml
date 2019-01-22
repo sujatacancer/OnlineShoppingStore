@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OnlineShoppingStore.Domain.Entities.Categ>
+
+<script src="~/Scripts/Jscripts/Category.js"></script>
+<form id="frmLoadCategory">
+    <div class="panel panel-default">
+        <div class="panel panel-heading text-center">Categories</div>
+        <div class="text-right">
+            @Html.ActionLink("Add New Category", "AddUpdateCateogry", "Category", new { categoryId = 0 }, new { @style = "color:#000aaa;" })
+        </div>
+        @if (Model.Count() > 0)
+        {
+        <div>
+            <table id="tblCateogry" class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <td scope="col">Sr. No</td>
+                        <td scope="col">Categorzy Name</td>
+                        <td scope="col">Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        var a = 0;
+                        <tr>
+                            <td>@a++</td>
+                            <td>@item.CategoryName</td>
+                            <td>
+                                @Html.ActionLink("Edit", "AddUpdateCateogry", "Category", new { categoryId = item.CategoryId }, new { @class = "btn btn-primary" })
+                                <input type="button" value="Delete" id="Delete" class="btn btn-danger" onclick="fnDelete(@item.CategoryId);" />
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        }
+        else
+        {
+            <br />
+            <br />
+            <div >
+                <h1 class="text-warning text-center">No Records exits</h1>
+                <!--<input type="button" value="btnBack" id="Back" class="btn btn-danger" onclick="" />-->
+
+            </div>
+        }
+    </div>
+</form>
