@@ -1,8 +1,6 @@
 version: 0.2
 
 env:
-  parameter-store:
-    LOGIN_PASSWORD: "dockerLoginPassword"
 
 phases:
   install:
