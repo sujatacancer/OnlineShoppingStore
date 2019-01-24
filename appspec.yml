@@ -1,12 +1,17 @@
-version: 0.0
+--- 
+files: 
+  - 
+    destination: "c:\\SiteData\\www.livewatchsecurity.com"
+    source: /
+hooks: 
+  AfterInstall: 
+    - 
+      location: CodeDeploy/AfterInstall.bat
+  ApplicationStart: 
+    - 
+      location: CodeDeploy/ApplicationStart.bat
+  ApplicationStop: 
+    - 
+      location: CodeDeploy/ApplicationStop.bat
 os: windows
-files:
-  - source: /
-    destination: c:\SiteData\www.livewatchsecurity.com
-hooks:
-  ApplicationStop:
-    - location: CodeDeploy/ApplicationStop.bat
-  AfterInstall:
-    - location: CodeDeploy/AfterInstall.bat
-  ApplicationStart:
-    - location: CodeDeploy/ApplicationStart.bat
+version: 0.0
